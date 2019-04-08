@@ -1,0 +1,11 @@
+let
+  function fact(n:int) : int =
+    let
+      var x := 1
+    in
+      (for i := 1 to n
+        do (x := x * i)); x
+    end
+in
+  (print_int(fact(10)); 0)
+end

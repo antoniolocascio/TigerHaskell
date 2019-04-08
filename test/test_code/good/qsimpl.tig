@@ -1,0 +1,17 @@
+let
+    var N := 2
+
+    type intArray = array of int
+
+    var col := intArray [ N ] of 0
+
+    function try (c : int) =
+     if c=N
+     then print("End\n")
+     else for r := 0 to N-1
+	   do	(
+          col[c] :=r;
+	        try (c+1)
+        )
+ in try (0); 0
+end

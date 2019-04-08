@@ -1,0 +1,7 @@
+let
+  var s1 := getstr()
+  var s2 := "g"
+  var r := s1 = s2
+in
+  print_int(r); 0
+end

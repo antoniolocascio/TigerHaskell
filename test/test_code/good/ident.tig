@@ -1,0 +1,7 @@
+
+let
+  function f (a:int) : int = a + a
+	function g (a:int) : int = a
+in
+ g (2)
+end

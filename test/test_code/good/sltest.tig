@@ -1,0 +1,15 @@
+let
+    var N := 2
+
+    function f (x : int) =
+    (print("Entry: "); print_int(x);
+     if x=N
+      then print("End\n")
+      else for r := 0 to N-1 do	(
+             print("for, current: "); print_int(x); print("iter: "); print_int(r);
+ 	           f(x+1)
+           )
+    )
+
+ in f(0); 0
+end

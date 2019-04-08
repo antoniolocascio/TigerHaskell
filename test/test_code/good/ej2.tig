@@ -1,0 +1,57 @@
+let
+    type List = {item:int, rest:List}
+    function cons(x:int, xs:List):List = List{item = x, rest = xs}
+
+    function length(l:List):int =
+      if l = nil
+        then 0
+        else 1 + length(l.rest)
+
+    function concat(l1:List, l2:List):List =
+      if l1 = nil
+        then l2
+        else cons(l1.item, concat(l1.rest, l2))
+
+    function snoc(x:int, xs:List):List = concat(xs, cons(x, nil))
+
+    function filtra(n:int, l:List):List =
+      if l = nil
+        then l
+        else if l.item = n
+              then filtra(n, l.rest)
+              else cons(l.item, filtra(n, l.rest))
+
+    function isin(x:int, xs:List):int =
+      if xs = nil
+        then 0
+        else x = xs.item | isin(x, xs.rest)
+
+    function remove(x:int, xs:List):List =
+      if xs = nil
+        then xs
+        else if x = xs.item
+              then xs.rest
+              else cons(xs.item, remove(x, xs.rest))
+
+    function removeall(x:int, xs:List):List =
+      if xs = nil
+        then xs
+        else if x = xs.item
+              then removeall(x, xs.rest)
+              else cons(xs.item, removeall(x, xs.rest))
+
+    function reverse(l:List):List =
+      if l = nil
+        then l
+        else snoc(l.item, reverse(l.rest))
+
+    function printlist(l:List):int =
+      if l = nil
+        then 0
+        else (print_int(l.item); printlist(l.rest))
+    var l := cons(1, cons(2,nil))
+in
+     if isin(1, l)
+       then (print("Bien!\n"); 0)
+       else (print ("Mal!\n"); 0)
+end

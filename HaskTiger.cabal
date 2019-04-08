@@ -1,0 +1,166 @@
+name:                HaskTiger
+version:             0.1.0.0
+homepage:            https://git.dcc.fceia.unr.edu.ar/Compiladores
+license:             BSD3
+license-file:        LICENSE
+author:              Martincito
+maintainer:          martin@dcc.fceia.unr.edu.ar
+copyright:           2018 Lcc
+category:            Compiler
+build-type:          Simple
+extra-source-files:  README.md
+cabal-version:       >=1.10
+
+library
+  hs-source-dirs:      src, interp
+  other-modules: State, TigerExterna
+  exposed-modules:
+      -- Primer entrega
+          TigerAbs
+        , TigerErrores
+        , TigerEscap
+        , TigerLexer
+        , TigerParser
+        , TigerPretty
+        , TigerPrettyRaw
+        , TigerSeman
+        , TigerSres
+        , TigerSymbol
+        , TigerTips
+        , TigerUnique
+        , TigerTopsort
+      -- Segunda entrega
+        -- Edited
+        , TigerTemp
+        -- Ir Gen new files
+        , TigerTree
+        , TigerTrans
+        , TigerFrame
+        , TigerPrettyIr
+        , TigerCanon
+        , TigerConsFoldIr
+        -- Experimental
+        , TigerInterpPP
+        , TigerInteractive
+        , TigerInterpTypes
+        , TigerInterpFrame
+        , TigerQQ
+      -- Tercer entrega. So vo.
+        , TigerAssem
+        , TigerAssemTypes
+        , TigerFCG
+        , TigerSA
+        , TigerInterf
+        , TigerProcTransf
+        , TigerProcTransfTypes
+        , TigerColoring
+  build-depends:       base
+                       , containers
+                       , text
+                       , mtl
+                       , parsec
+                       , pretty
+                       , cond
+                       , transformers
+                       -- QuasiQuoting things
+                       , syb
+                       , fgl
+                       , directory
+                       , graphviz
+                       , template-haskell
+  default-language:    Haskell2010
+  default-extensions: FlexibleInstances
+                    , TypeFamilies
+                    , GADTs
+                    , TupleSections
+                    , LambdaCase
+                    , PatternSynonyms
+                    , DeriveDataTypeable
+
+executable HaskTiger
+  hs-source-dirs:      app
+  main-is:             TigerMain.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  build-depends:       base
+                       , containers
+                       , text
+                       , mtl
+                       , parsec
+                       , pretty
+                       , cond
+                       , fgl
+                       , graphviz
+                       , transformers
+                       , HaskTiger
+  default-language:    Haskell2010
+
+test-suite HaskTiger-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+  build-depends:       base
+                     , parsec
+                     , directory
+                     , ansi-terminal
+                     , HaskTiger
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  default-language:    Haskell2010
+
+test-suite Parser
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Parser.hs
+  build-depends:       base
+                     , parsec
+                     , directory
+                     , ansi-terminal
+                     , HaskTiger
+  other-modules: Tools
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  default-language:    Haskell2010
+
+test-suite Escap
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             EscapTesting.hs
+  build-depends:       base
+                     , parsec
+                     , directory
+                     , ansi-terminal
+                     , HaskTiger
+  other-modules: Tools
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  default-language:    Haskell2010
+  default-extensions: QuasiQuotes
+
+test-suite Interp
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Interp.hs
+  build-depends:       base
+                     , parsec
+                     , directory
+                     , ansi-terminal
+                     , containers
+                     , cond
+                     , HaskTiger
+  other-modules: Tools
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  default-language:    Haskell2010
+test-suite Seman
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Seman.hs
+  build-depends:       base
+                     , parsec
+                     , directory
+                     , ansi-terminal
+                     , containers
+                     , HaskTiger
+  other-modules: Tools
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  default-language:    Haskell2010
+  default-extensions: QuasiQuotes
+source-repository head
+  type:     git
+  location: https://git.dcc.fceia.unr.edu.ar/Compiladores/TigerHaskell

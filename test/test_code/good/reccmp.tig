@@ -1,0 +1,7 @@
+let
+	type rectype = {name : string, id : int}
+	var r1 : rectype := rectype{name = "a", id = 1}
+  var r2 : rectype := rectype{name = "a", id = 1}
+in
+	print_int(r1 = r1); 0
+end

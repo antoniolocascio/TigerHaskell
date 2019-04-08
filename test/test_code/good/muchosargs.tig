@@ -1,0 +1,5 @@
+let
+    function f(a1: int, a2: int, a3: int, a4: int, a5: int, a6: int, a7: int, a8: int) : int = (print_int(a8); 0)
+in
+   f(1,2,3,4,5,6,7,8)
+end

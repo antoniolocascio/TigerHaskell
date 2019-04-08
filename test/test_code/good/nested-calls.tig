@@ -1,0 +1,4 @@
+let
+    function f (x : int) : int = x
+ in print_int(f(f(f(4))));0
+end

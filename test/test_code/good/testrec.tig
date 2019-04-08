@@ -1,0 +1,7 @@
+let
+    type R = {n:int, r:R}
+    var r0 := R{n = 9, r = nil}
+    var r1 := R{n = 1, r = r0}
+in
+    print_int(r1.r.n); 0
+end

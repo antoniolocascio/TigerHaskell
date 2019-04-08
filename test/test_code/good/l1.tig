@@ -1,0 +1,7 @@
+let
+  function f() = print("Hola")
+  var x : int := (f();0)
+  var y : int := 1
+in
+  y
+end

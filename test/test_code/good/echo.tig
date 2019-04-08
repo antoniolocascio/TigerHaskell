@@ -1,0 +1,11 @@
+let
+  function echo() =
+   let
+      var buffer := getstr()
+   in
+      while 1 do
+        (print(buffer); buffer := getstr())
+   end
+in
+   echo(); 0
+end

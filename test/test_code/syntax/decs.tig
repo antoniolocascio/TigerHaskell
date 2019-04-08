@@ -1,0 +1,7 @@
+let
+  var a : int := 1
+  function f(a:int):int = a
+  var a : string := "hola"
+in
+  f(a)
+end

@@ -1,0 +1,13 @@
+let
+    function suc(x: int):int = x + 1
+
+    type intArray = array of int
+
+    var arr := intArray [ 2 ] of suc(0)
+
+    function printArr (n : int) =
+       (for i := 0 to n-1
+	       do (print_int(arr[i])))
+
+ in (printArr (2); 0)
+end

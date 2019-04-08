@@ -1,0 +1,10 @@
+/* define valid mutually recursive procedures */
+let
+
+function f () = (print("f\n"); g())
+
+function g () = (print("g\n"); f())
+
+in
+	f(); 0
+end

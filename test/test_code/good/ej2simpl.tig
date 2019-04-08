@@ -1,0 +1,15 @@
+let
+    type List = {item:int, rest:List}
+    function cons(x:int, xs:List):List = List{item = x, rest = xs}
+
+    function isin(x:int, xs:List):int =
+      if xs = nil
+        then 0
+        else x = xs.item | isin(x, xs.rest)
+
+    var l := cons(1, cons(2,nil))
+in
+     if isin(1, l)
+       then (print("Bien!\n"); 0)
+       else (print ("Mal!\n"); 0)
+end

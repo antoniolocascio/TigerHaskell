@@ -1,0 +1,42 @@
+let
+  type tree = {key:int, children:treelist}
+  type treelist = {hd:tree, tl:treelist}
+
+  function length(l:treelist):int =
+    if l = nil
+      then 0
+      else 1 + length(l.tl)
+
+  function isBin(t:tree):int =
+    t = nil | (length(t.children) < 3 & isBinRec(t.children))
+  function isBinRec(l:treelist):int =
+    l = nil | (isBin(l.hd) & isBinRec(l.tl))
+
+  function isBComplete(t:tree):int =
+    t = nil | length(t.children) = 0 | (length(t.children) = 2 & isBCompleteRec(t.children))
+  function isBCompleteRec(l:treelist):int =
+    l = nil | (isBComplete(l.hd) & isBCompleteRec(l.tl))
+
+  function printInOrder(t:tree):int =
+    if t = nil
+      then 0
+      else
+        if t.children <> nil
+          then  (printInOrder(t.children.hd); print(chr(t.key));
+                if t.children.tl <> nil then (printInOrder(t.children.tl.hd); ()); 0)
+          else (print(chr(t.key)); 0)
+
+  function printPostOrder(t:tree):int =
+    if t = nil
+      then 0
+      else (printChildrenPost(t.children); print(chr(t.key)); 0)
+
+  function printChildrenPost(l:treelist):int =
+    if l = nil
+      then 0
+      else (printPostOrder(l.hd); printChildrenPost(l.tl))
+
+  var t := tree{key = 1, children = treelist{hd = tree{key = 2, children = nil}, tl = nil}}
+in
+  (print_int(isBin(t)); 0)
+end

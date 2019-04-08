@@ -1,0 +1,11 @@
+let
+  function suc(x: int):int = x + 1
+in
+  suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(
+   suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(
+   suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(
+   suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(
+   suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(suc(
+   suc(suc(suc(suc(suc(suc(suc(suc(0))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+   ))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))
+end
